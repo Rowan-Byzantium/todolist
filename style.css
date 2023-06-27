@@ -1,0 +1,70 @@
+:root {
+    font-size: 16px;
+    font-family: 'Comic Sans MS', 'Helvetica Neue', sans-serif;
+    --background: #D9D9D9;
+    --valid: #7D80DA;
+    --delete: #FF0000;
+    --task: #5C5959;
+    --task-valid-background: #800080;
+}
+
+* {
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body,
+ul,
+li,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    padding: 0;
+    margin: 0 0;
+}
+.body_background {
+    background-color: var(--background);
+}
+.title{
+    margin: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tasks-list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.task {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 90%;
+    background-color: var(--task);
+    padding: 1rem;
+    margin: .5rem;
+    border-radius: 10px;
+}
+
+.task_button-cross {
+    width: 1.5rem;
+}
+
+.task_button-valid{
+    width: 1.5rem;
+    aspect-ratio: 1/1;
+    border-radius: 1rem;
+}
+
+.task_title{
+    margin-left: 2rem ;
+    margin-right: 2rem ;
+}
