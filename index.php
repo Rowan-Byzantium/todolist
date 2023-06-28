@@ -32,25 +32,34 @@ $result = $query->fetchAll();
 // var_dump($result);
 
 function getList($array)
-{   
-    $li = '<ul>';
+{
+    $li = '<ul class="tasks-list">';
     foreach ($array as $task) {
+        $task['status'];
+        // if ($task['status'] == 0) {
+        //     $classActive = '';
+        // } else {
+        //     $classActive = 'task--done';
+        // }
+
         $li .= '<li class="task"><button class="task_button-valid"></button>
-                <h3 class="task_title">' . $task['description'] . '</h3><img class="task_button-cross" src="img/cross.png" alt="">
-                </li>';
+                    <h3 class="task_title">' . $task['description'] . '</h3><img class="task_button-cross" src="img/cross.png" alt="">
+                    </li>';
+
+        // $li .= '<li class="task task--done"><button class="task_button-valid--done"></button>
+        //         <h3 class="task_title">' . $task['description'] . '</h3><img class="task_button-cross" src="img/cross.png" alt="">
+        //         </li>';
     }
-    $li.='</ul>';
+    $li .= '</ul>';
     return $li;
 }
-
-
 
 ?>
 
 <body class="body_background">
     <H1 class="title">My Task</H1>
 
-    <?=(getList($result))?>
+    <?= (getList($result)) ?>
     <!-- <ul class="tasks-list">
         <li class="task"><button class="task_button-valid"></button>
             <h3 class="task_title"></h3><img class="task_button-cross" src="img/cross.png" alt="">
@@ -79,4 +88,5 @@ function getList($array)
     </ul> -->
 </body>
 <script src="script.js"></script>
+
 </html>
