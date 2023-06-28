@@ -5,10 +5,11 @@ $query->execute();
 // $result = $query->fetchAll();
 
 
-$query = $dbCo->prepare("INSERT INTO `task`(`description`) VALUES (:description)");
 
-$isOk = $query->execute([
-    'description' => strip_tags($_POST['description'])
-]);
-
-echo '<p>' . ($isOk ? 'la tâche a été ajoutée':'erreur') . '</p>';
+// $queryInsert = $dbCo->prepare("UPDATE task SET status = 1 WHERE id_task = $id_task");
+// $id_task = 
+// $isOk = $queryInsert->execute([
+//     'description' => strip_tags($_POST['description'])
+// ]);
+// echo '<p>' . ($isOk ? 'la tâche a été ajoutée':'erreur') . '</p>';
+// header('location: index.php');
