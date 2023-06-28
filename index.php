@@ -78,5 +78,5 @@ function getList($array)
         </li>
     </ul> -->
 </body>
-
+<script src="script.js"></script>
 </html>
