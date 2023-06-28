@@ -1,18 +1,8 @@
 <?php
 
-try {
-    $dbCo = new PDO(
-        'mysql:host=localhost;dbname=forget_me_not;charset=utf8',
-        'phpuser',
-        '123456'
-    );
+require "php/_connection-Bdd.php";
+include "php/_function.php";
 
-    $dbCo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-} catch (Exception $e) {
-    die("Can't connect to database." . $e->getMessage());
-}
-
-include "php/_function.php"
 ?>
 
 
@@ -31,9 +21,23 @@ require "php/_SQLqueries.php"
 
 <body class="body_background">
     <H1 class="title">My Task</H1>
+    <?php
+    $query = $dbCo->prepare('SELECT id_task, date_creation, status, description FROM task WHERE status = 0 ORDER BY date_creation;');
+    $query->execute();
+    $result = $query->fetchAll();
+    echo getList($result);
 
-    <?= (getList($result)) ?>
+    ?>
 
+    <div class="background-form">
+        <form action="SQLqueries.php" method="post" class="add-task">
+            <input type="text" name="description" id="description" placeholder="Enter your task:" required>
+            <input class="add-task_button" type="submit" value="Add task">
+        </form>
+    </div>
+
+
+    <img class="img_add" src="img/+.png" alt="">
 </body>
 <script src="script.js"></script>
 
