@@ -16,10 +16,10 @@ include "php/_function.php";
     <link rel="stylesheet" href="Css/style.css">
 </head>
 <?php
-require "php/_SQLqueries.php"
+require "SQLqueries.php"
 ?>
 
-<body class="body_background">
+<body>
     <H1 class="title">My Task</H1>
     <?php
     $query = $dbCo->prepare('SELECT id_task, date_creation, status, description FROM task WHERE status = 0 ORDER BY date_creation;');
