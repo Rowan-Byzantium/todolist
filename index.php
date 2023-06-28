@@ -12,6 +12,7 @@ try {
     die("Can't connect to database." . $e->getMessage());
 }
 
+include "php/_function.php"
 ?>
 
 
@@ -22,35 +23,12 @@ try {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Forget Me Not</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="Css/style.css">
 </head>
 <?php
-$query = $dbCo->prepare('SELECT id_task, date_creation, status, description FROM task ORDER BY date_creation;');
+$query = $dbCo->prepare('SELECT id_task, date_creation, status, description FROM task WHERE status = 0 ORDER BY date_creation;');
 $query->execute();
 $result = $query->fetchAll();
-
-// var_dump($result);
-
-
-function isValid($bool)
-{
-    return ($bool == 0) ? '"task_in_progress"' : '"task_valid"';
-}
-
-function getList($array)
-{
-
-    $li = '<ul class="tasks-list">';
-    foreach ($array as $task) {
-        $li .= '<li class=' . isValid($task['status']) . '><button class="task_button-valid "></button>
-                <h3 class="task_title">' . $task['description'] . '</h3><img class="task_button-cross" src="img/cross.png" alt="">
-                </li>';
-    }
-    $li .= '</ul>';
-    return $li;
-}
-
-
 
 ?>
 
@@ -58,32 +36,7 @@ function getList($array)
     <H1 class="title">My Task</H1>
 
     <?= (getList($result)) ?>
-    <!-- <ul class="tasks-list">
-        <li class="task"><button class="task_button-valid"></button>
-            <h3 class="task_title"></h3><img class="task_button-cross" src="img/cross.png" alt="">
-        </li>
-        <li class="task"><button class="task_button-valid"></button>
-            <h3 class="task_title">Name of My Task</h3><img class="task_button-cross" src="img/cross.png" alt="">
-        </li>
-        <li class="task"><button class="task_button-valid"></button>
-            <h3 class="task_title">Name of My Task</h3><img class="task_button-cross" src="img/cross.png" alt="">
-        </li>
-        <li class="task"><button class="task_button-valid"></button>
-            <h3 class="task_title">Name of My Task</h3><img class="task_button-cross" src="img/cross.png" alt="">
-        </li>
-        <li class="task"><button class="task_button-valid"></button>
-            <h3 class="task_title">Name of My Task</h3><img class="task_button-cross" src="img/cross.png" alt="">
-        </li>
-        <li class="task"><button class="task_button-valid"></button>
-            <h3 class="task_title">Name of My Task</h3><img class="task_button-cross" src="img/cross.png" alt="">
-        </li>
-        <li class="task"><button class="task_button-valid"></button>
-            <h3 class="task_title">Name of My Task</h3><img class="task_button-cross" src="img/cross.png" alt="">
-        </li>
-        <li class="task"><button class="task_button-valid"></button>
-            <h3 class="task_title">Name of My Task</h3><img class="task_button-cross" src="img/cross.png" alt="">
-        </li>
-    </ul> -->
+
 </body>
 <script src="script.js"></script>
 
