@@ -32,6 +32,19 @@ h6 {
     display: none;
 }
 
+/* Button */
+.button_return{
+    padding: .5rem;
+    background-color: var(--task);
+    color: var(--background);
+    border-radius: 5rem;
+    width: 40%;
+    margin: auto;
+    margin-top: 2rem;
+    display: block;
+
+}
+
 /* Global */
 .body_background {
     background-color: var(--background);
@@ -132,4 +145,10 @@ input {
     background-color: var(--valid);
     color: var(--background);
     border-radius: 2rem;
+}
+
+.info{
+    width: 100%;
+    text-align: center;
+    margin-top: 10rem;
 }
