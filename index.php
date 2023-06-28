@@ -22,9 +22,10 @@ require "SQLqueries.php"
 <body>
     <H1 class="title">My Task</H1>
     <?php
-    $query = $dbCo->prepare('SELECT id_task, date_creation, status, description FROM task WHERE status = 0 ORDER BY date_creation;');
+    $query = $dbCo->prepare('SELECT id_task, date_creation, status, description FROM task  ORDER BY date_creation ASC;');
     $query->execute();
     $result = $query->fetchAll();
+    // $id_task = $result["id_task"];
     echo getList($result);
 
     ?>

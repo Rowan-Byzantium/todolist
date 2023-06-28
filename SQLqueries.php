@@ -15,8 +15,10 @@ if (isset($_POST['description'])) {
 
 
 
-// $queryInsert = $dbCo->prepare("UPDATE task SET status = 1 WHERE id_task = $id_task");
-// $id_task = 
-// $isOk = $queryInsert->execute();
-// echo '<p>' . ($isOk ? 'la tâche a été validée':'erreur') . '</p>';
-// header('location: index.php');
+if (array_key_exists('id_task', $_GET)){
+$queryInsert = $dbCo->prepare("UPDATE task SET status = 1 WHERE id_task = :id");
+$isOk = $queryInsert->execute([
+    'id' => intval(strip_tags($_GET["id_task"]))
+]);
+echo '<p>' . ($isOk ? 'la tâche a été validée':'erreur') . '</p>';
+header('location: index.php');}
