@@ -53,6 +53,7 @@ h6 {
     margin: .5rem;
     border-radius: 10px;
 }
+
 .task_in_progress {
     background-color: var(--task);
     display: flex;
