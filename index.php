@@ -29,24 +29,64 @@ $query = $dbCo->prepare('SELECT id_task, date_creation, status, description FROM
 $query->execute();
 $result = $query->fetchAll();
 
+// var_dump($result);
+
+
+function isValid($bool)
+{
+    if ($bool == 0) {
+        return '"task_in_progress"';
+    } else {
+        return '"task_valid"';
+    }
+}
+function getList($array)
+{
+
+    $li = '<ul class="tasks-list">';
+    foreach ($array as $task) {
+        $li .= '<li class=' . isValid($task['status']) . '><button class="task_button-valid "></button>
+                <h3 class="task_title">' . $task['description'] . '</h3><img class="task_button-cross" src="img/cross.png" alt="">
+                </li>';
+    }
+    $li .= '</ul>';
+    return $li;
+}
+
+
 
 ?>
 
 <body class="body_background">
     <H1 class="title">My Task</H1>
-    <ul class="tasks-list">
-        <?php
-        foreach ($result as $product) {
-            if ($product['status'] == 0) {
-                echo '<li class="task"><button class="task_button-valid' . $product['status'] . '"></button>
-            <h3 class="task_title">' . $product['description'] . '</h3><img class="task_button-cross" src="img/cross.png" alt="">
-        </li>';
-            }
-        }
-        ?>
 
-    </ul>
-
+    <?= (getList($result)) ?>
+    <!-- <ul class="tasks-list">
+        <li class="task"><button class="task_button-valid"></button>
+            <h3 class="task_title"></h3><img class="task_button-cross" src="img/cross.png" alt="">
+        </li>
+        <li class="task"><button class="task_button-valid"></button>
+            <h3 class="task_title">Name of My Task</h3><img class="task_button-cross" src="img/cross.png" alt="">
+        </li>
+        <li class="task"><button class="task_button-valid"></button>
+            <h3 class="task_title">Name of My Task</h3><img class="task_button-cross" src="img/cross.png" alt="">
+        </li>
+        <li class="task"><button class="task_button-valid"></button>
+            <h3 class="task_title">Name of My Task</h3><img class="task_button-cross" src="img/cross.png" alt="">
+        </li>
+        <li class="task"><button class="task_button-valid"></button>
+            <h3 class="task_title">Name of My Task</h3><img class="task_button-cross" src="img/cross.png" alt="">
+        </li>
+        <li class="task"><button class="task_button-valid"></button>
+            <h3 class="task_title">Name of My Task</h3><img class="task_button-cross" src="img/cross.png" alt="">
+        </li>
+        <li class="task"><button class="task_button-valid"></button>
+            <h3 class="task_title">Name of My Task</h3><img class="task_button-cross" src="img/cross.png" alt="">
+        </li>
+        <li class="task"><button class="task_button-valid"></button>
+            <h3 class="task_title">Name of My Task</h3><img class="task_button-cross" src="img/cross.png" alt="">
+        </li>
+    </ul> -->
 </body>
 <script src="script.js"></script>
 

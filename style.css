@@ -43,12 +43,32 @@ h6 {
     flex-direction: column;
 }
 
-.task {
+
+.task_in_progress, .task_valid {
     display: flex;
     align-items: center;
     justify-content: space-between;
     width: 90%;
+    padding: 1rem;
+    margin: .5rem;
+    border-radius: 10px;
+}
+.task_in_progress {
     background-color: var(--task);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 90%;
+    padding: 1rem;
+    margin: .5rem;
+    border-radius: 10px;
+}
+.task_valid {
+    background-color: var(--task-valid-background);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 90%;
     padding: 1rem;
     margin: .5rem;
     border-radius: 10px;
