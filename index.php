@@ -11,7 +11,7 @@ try {
 } catch (Exception $e) {
     die("Can't connect to database." . $e->getMessage());
 }
-
+require "php/_SQLqueries.php";
 include "php/_function.php"
 ?>
 
@@ -25,9 +25,7 @@ include "php/_function.php"
     <title>Forget Me Not</title>
     <link rel="stylesheet" href="Css/style.css">
 </head>
-<?php
-require "php/_SQLqueries.php"
-?>
+
 
 <body class="body_background">
     <H1 class="title">My Task</H1>
