@@ -25,7 +25,7 @@ try {
     <link rel="stylesheet" href="style.css">
 </head>
 <?php
-$query = $dbCo->prepare('SELECT description FROM task WHERE status = 0 ORDER BY date_creation DESC;');
+$query = $dbCo->prepare('SELECT description FROM task WHERE status = 0 ORDER BY date_creation;');
 $query->execute();
 $result = $query->fetchAll();
 
