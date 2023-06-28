@@ -44,16 +44,6 @@ h6 {
 }
 
 
-.task_in_progress, .task_valid {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 90%;
-    padding: 1rem;
-    margin: .5rem;
-    border-radius: 10px;
-}
-
 .task_in_progress {
     background-color: var(--task);
     display: flex;
@@ -75,10 +65,6 @@ h6 {
     border-radius: 10px;
 }
 
-.task--done{
-    background-color: var(--task-valid-background);
-}
-
 .task_button-cross {
     width: 1.5rem;
 }
@@ -91,9 +77,6 @@ h6 {
     border: var(--background) 0.1rem solid;
 }
 
-.task_button-valid--done{
-    background-color: var(--valid);
-}
 .task_title{
     margin-left: 2rem ;
     margin-right: 2rem ;
