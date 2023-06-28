@@ -34,12 +34,9 @@ $result = $query->fetchAll();
 
 function isValid($bool)
 {
-    if ($bool == 0) {
-        return '"task_in_progress"';
-    } else {
-        return '"task_valid"';
-    }
+    return ($bool == 0) ? '"task_in_progress"' : '"task_valid"';
 }
+
 function getList($array)
 {
 
