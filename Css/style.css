@@ -35,7 +35,6 @@ h6 {
 /* Global */
 .body_background {
     background-color: var(--background);
-    height: 100vh;
 }
 
 .title {
