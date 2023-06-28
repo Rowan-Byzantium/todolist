@@ -25,30 +25,29 @@ try {
     <link rel="stylesheet" href="style.css">
 </head>
 <?php
-$query = $dbCo->prepare('SELECT description FROM task WHERE status = 0 ORDER BY date_creation;');
+$query = $dbCo->prepare('SELECT id_task, date_creation, status, description FROM task ORDER BY date_creation;');
 $query->execute();
 $result = $query->fetchAll();
 
 // var_dump($result);
 
+
+function isValid($bool)
+{
+    if ($bool == 0) {
+        return '"task_in_progress"';
+    } else {
+        return '"task_valid"';
+    }
+}
 function getList($array)
 {
+
     $li = '<ul class="tasks-list">';
     foreach ($array as $task) {
-        $task['status'];
-        // if ($task['status'] == 0) {
-        //     $classActive = '';
-        // } else {
-        //     $classActive = 'task--done';
-        // }
-
         $li .= '<li class="task"><button class="task_button-valid"></button>
-                    <h3 class="task_title">' . $task['description'] . '</h3><img class="task_button-cross" src="img/cross.png" alt="">
-                    </li>';
-
-        // $li .= '<li class="task task--done"><button class="task_button-valid--done"></button>
-        //         <h3 class="task_title">' . $task['description'] . '</h3><img class="task_button-cross" src="img/cross.png" alt="">
-        //         </li>';
+                <h3 class="task_title">' . $task['description'] . '</h3><img class="task_button-cross" src="img/cross.png" alt="">
+                </li>';
     }
     $li .= '</ul>';
     return $li;

@@ -10,7 +10,7 @@ CREATE TABLE task (
 );
 
 INSERT INTO task    ('description')
-VALUES              ("passer l'aspirateur"),
+VALUES              ('passer l aspirateur'),
                     ('faire la vaisselle'),
                     ('trier le linge sale'),
                     ('organiser le bureau'),

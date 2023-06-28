@@ -45,7 +45,6 @@ INSERT INTO `task` (`id_task`, `date_creation`, `status`, `description`) VALUES
 (2, '2023-06-27 16:28:02', 0, 'trier le linge sale'),
 (3, '2023-06-27 16:28:02', 0, 'organiser le bureau'),
 (4, '2023-06-27 16:28:02', 0, 'racheter à manger'),
-(5, '2023-06-27 16:28:21', 0, 'passer l\'aspirateur');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
