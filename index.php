@@ -25,42 +25,29 @@ try {
     <link rel="stylesheet" href="style.css">
 </head>
 <?php
-$query = $dbCo->prepare('SELECT description FROM task;');
+$query = $dbCo->prepare('SELECT id_task, date_creation, status, description FROM task ORDER BY date_creation;');
 $query->execute();
 $result = $query->fetchAll();
 
-var_dump($result)
+
 ?>
 
 <body class="body_background">
     <H1 class="title">My Task</H1>
     <ul class="tasks-list">
-        <li class="task"><button class="task_button-valid"></button>
-            <h3 class="task_title">Name of My Task</h3><img class="task_button-cross" src="img/cross.png" alt="">
-        </li>
-        <li class="task"><button class="task_button-valid"></button>
-            <h3 class="task_title">Name of My Task</h3><img class="task_button-cross" src="img/cross.png" alt="">
-        </li>
-        <li class="task"><button class="task_button-valid"></button>
-            <h3 class="task_title">Name of My Task</h3><img class="task_button-cross" src="img/cross.png" alt="">
-        </li>
-        <li class="task"><button class="task_button-valid"></button>
-            <h3 class="task_title">Name of My Task</h3><img class="task_button-cross" src="img/cross.png" alt="">
-        </li>
-        <li class="task"><button class="task_button-valid"></button>
-            <h3 class="task_title">Name of My Task</h3><img class="task_button-cross" src="img/cross.png" alt="">
-        </li>
-        <li class="task"><button class="task_button-valid"></button>
-            <h3 class="task_title">Name of My Task</h3><img class="task_button-cross" src="img/cross.png" alt="">
-        </li>
-        <li class="task"><button class="task_button-valid"></button>
-            <h3 class="task_title">Name of My Task</h3><img class="task_button-cross" src="img/cross.png" alt="">
-        </li>
-        <li class="task"><button class="task_button-valid"></button>
-            <h3 class="task_title">Name of My Task</h3><img class="task_button-cross" src="img/cross.png" alt="">
-        </li>
+        <?php
+        foreach ($result as $product) {
+            if ($product['status'] == 0) {
+                echo '<li class="task"><button class="task_button-valid' . $product['status'] . '"></button>
+            <h3 class="task_title">' . $product['description'] . '</h3><img class="task_button-cross" src="img/cross.png" alt="">
+        </li>';
+            }
+        }
+        ?>
+
     </ul>
-    
+
 </body>
 <script src="script.js"></script>
+
 </html>
