@@ -26,10 +26,7 @@ include "php/_function.php"
     <link rel="stylesheet" href="Css/style.css">
 </head>
 <?php
-$query = $dbCo->prepare('SELECT id_task, date_creation, status, description FROM task WHERE status = 0 ORDER BY date_creation;');
-$query->execute();
-$result = $query->fetchAll();
-
+require "php/_SQLqueries.php"
 ?>
 
 <body class="body_background">
