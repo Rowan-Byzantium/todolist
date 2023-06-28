@@ -37,6 +37,15 @@ $result = $query->fetchAll();
 
     <?= (getList($result)) ?>
 
+<div class="background-form">
+    <form action="index.php" method="post" class="add-task">
+        <input type="text" name="description" id="description" placeholder="Enter your task:" required>
+        <input class="add-task_button" type="submit" value="Add task">
+    </form>
+</div>
+
+
+    <img class="img_add" src="img/+.png" alt="">
 </body>
 <script src="script.js"></script>
 
