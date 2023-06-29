@@ -27,7 +27,14 @@ require "SQLqueries.php"
         echo $_GET['okMsg'];
     }
 
-    $query = $dbCo->prepare('SELECT id_task, date_creation, status, description FROM task ORDER BY date_creation;');
+    $query = $dbCo->prepare('SELECT id_task, date_creation, status, description FROM task WHERE status = 0 ORDER BY date_creation;');
+    $query->execute();
+    $result = $query->fetchAll();
+    echo getList($result);
+   ?>
+   <hr>
+  <?php
+    $query = $dbCo->prepare('SELECT id_task, date_creation, status, description FROM task WHERE status = 1 ORDER BY date_creation;');
     $query->execute();
     $result = $query->fetchAll();
     echo getList($result);

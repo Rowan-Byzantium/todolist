@@ -33,7 +33,7 @@ h6 {
 }
 
 /* Button */
-.button_return{
+.button_return {
     padding: .5rem;
     background-color: var(--task);
     color: var(--background);
@@ -46,7 +46,7 @@ h6 {
 }
 
 /* Global */
-body{
+body {
     background-color: var(--background);
 }
 
@@ -64,19 +64,20 @@ body{
     flex-direction: column;
 }
 
-@media screen and (min-width:1200px){
-    body{
+@media screen and (min-width:1200px) {
+    body {
         font-size: 1.5rem;
     }
-    .tasks-list{
+
+    .tasks-list {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr;
-        gap : .5rem;
+        gap: .5rem;
     }
 }
 
 
-.task_in_progress {
+.task_in-progress {
     background-color: var(--task);
     display: flex;
     align-items: center;
@@ -86,6 +87,7 @@ body{
     margin: .5rem;
     border-radius: 10px;
     gap: 1.5rem;
+    color: var(--background);
 }
 
 .task_valid {
@@ -98,13 +100,14 @@ body{
     margin: .5rem;
     border-radius: 10px;
     gap: 1rem;
+    color: var(--background);
 }
 
 .task_button-cross {
     width: 1.5rem;
 }
 
-.task_button-valid {
+.task_button_in-progress {
     width: 1.5rem;
     aspect-ratio: 1/1;
     border-radius: 1rem;
@@ -112,17 +115,32 @@ body{
     border: var(--background) 0.1rem solid;
 }
 
-@media screen and (min-width:720px){
-    .task_in_progress{
+.task_button_in-progress:hover {
+    width: 1.5rem;
+    aspect-ratio: 1/1;
+    border-radius: 1rem;
+    background-color: var(--valid);
+    border: var(--background) 0.1rem solid;
+}
+
+.task_button_valid {
+    display: none;
+}
+
+@media screen and (min-width:720px) {
+    .task_in-progress {
         height: 150px;
     }
-    .task_valid{
+
+    .task_valid {
         height: 150px;
     }
+
     .task_button-cross {
         width: 2rem;
     }
-    .task_button-valid{
+
+    .task_button-valid {
         width: 2rem;
         height: 2rem;
     }
@@ -176,7 +194,7 @@ input {
     border-radius: 2rem;
 }
 
-.info{
+.info {
     width: 100%;
     text-align: center;
     margin-top: 10rem;
