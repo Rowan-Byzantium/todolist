@@ -111,6 +111,9 @@ body{
 }
 
 @media screen and (min-width:720px){
+    .task_in_progress{
+        height: 150px;
+    }
     .task_valid{
         height: 150px;
     }

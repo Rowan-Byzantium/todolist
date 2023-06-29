@@ -35,7 +35,7 @@ require "SQLqueries.php"
     ?>
 
     <div class="background-form">
-        <form action="SQLqueries.php" method="post" class="add-task">
+        <form action="index.php" method="post" class="add-task">
             <input type="text" name="description" id="description" placeholder="Enter your task:" required>
             <input class="add-task_button" type="submit" value="Add task">
         </form>
