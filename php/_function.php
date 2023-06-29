@@ -1,10 +1,20 @@
 <?php
-
+/**
+ * A function to apply a class to the task. 
+ *
+ * @param [type] $bool --the status of the task in the database
+ * @return string --the class of the task
+ */
 function isValid($bool)
 {
     return ($bool == 0) ? '"task_in_progress"' : '"task_valid"';
 }
-
+/**
+ * Undocumented function
+ *
+ * @param [type] $array --the list of the tasks in the database
+ * @return string -- the list of the tasks in an html list
+ */
 function getList($array)
 {
 
@@ -17,4 +27,3 @@ function getList($array)
     $li .= '</ul>';
     return $li;
 }
-

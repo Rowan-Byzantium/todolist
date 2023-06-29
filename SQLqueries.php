@@ -19,13 +19,32 @@ if (isset($_POST['description'])) {
 
 if (array_key_exists('id_task', $_GET)) {
     $queryInsert = $dbCo->prepare("UPDATE task SET status = 1 WHERE id_task = :id");
-    $isOk = $queryInsert->execute([
+    $isOkStatus = $queryInsert->execute([
         'id' => intval(strip_tags($_GET["id_task"]))
     ]);
     // echo '<p>' . ($isOk ? 'la tâche a été validée':'erreur') . '</p>';
     header('location: index.php');
 }
+
+if (isset($_POST['id'])){
+    $queryModif = $dbCo->prepare('UPDATE task SET description = :description WHERE id_task = :id');
+    $isOkUpdate = $queryModif->execute([
+        'id' => intval(strip_tags($_GET["id_task"])),
+        'description'=> strip_tags($_POST['description'])
+    ]);
+}
+
+if (isset($_POST['id'])){
+    $queryDelete = $dbCo->prepare('DELETE FROM task WHERE id_task = :id');
+    $isOkDelete = $queryDelete->execute([
+        'id' => intval(strip_tags($_GET["id_task"]))
+    ]);
+}
+
+
+
 ?>
+
 
 <!-- <!DOCTYPE html>
 <html lang="en">
