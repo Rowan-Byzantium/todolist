@@ -1,6 +1,6 @@
 <?php
 
-require "php/_connection-Bdd.php";
+require "../php/_connection-Bdd.php";
 
 
 if (isset($_POST['description'])) {
@@ -9,8 +9,8 @@ if (isset($_POST['description'])) {
     $isOk = $queryInsert->execute([
         'description' => strip_tags($_POST['description'])
     ]);
-    echo '<p>' . ($isOk ? 'la tâche a été ajoutée' : 'erreur') . '</p>';
-    header('location: index.php?okMsg=' . ($isOk ? 'la tâche a été ajoutée !' : 'Ça n\'a pas marché...'));
+    // echo '<p>' . ($isOk ? 'la tâche a été ajoutée' : 'erreur') . '</p>';
+    header('location: ../index.php?okMsg=' . ($isOk ? 'la tâche a été ajoutée !' : 'Ça n\'a pas marché...'));
     exit;
 }
 
@@ -23,23 +23,10 @@ if (array_key_exists('id_task', $_GET)) {
         'id' => intval(strip_tags($_GET["id_task"]))
     ]);
     // echo '<p>' . ($isOk ? 'la tâche a été validée':'erreur') . '</p>';
-    header('location: index.php');
-}
+    header('location: ../index.php');
+};
 
-if (isset($_POST['id'])){
-    $queryModif = $dbCo->prepare('UPDATE task SET description = :description WHERE id_task = :id');
-    $isOkUpdate = $queryModif->execute([
-        'id' => intval(strip_tags($_GET["id_task"])),
-        'description'=> strip_tags($_POST['description'])
-    ]);
-}
 
-if (isset($_POST['id'])){
-    $queryDelete = $dbCo->prepare('DELETE FROM task WHERE id_task = :id');
-    $isOkDelete = $queryDelete->execute([
-        'id' => intval(strip_tags($_GET["id_task"]))
-    ]);
-}
 
 
 

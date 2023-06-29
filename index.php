@@ -16,14 +16,14 @@ include "php/_function.php";
     <link rel="stylesheet" href="Css/style.css">
 </head>
 <?php
-require "SQLqueries.php"
+// require "queries/status.php"
 ?>
 
 <body>
     <H1 class="title">My Task</H1>
-    
+
     <?php
-    if(array_key_exists('okMsg', $_GET)){
+    if (array_key_exists('okMsg', $_GET)) {
         echo $_GET['okMsg'];
     }
 
@@ -34,16 +34,18 @@ require "SQLqueries.php"
 
     ?>
 
+    <!-- <form action="index.php" method="post" class="delete-task">
+        <input type="submit" class="task_button-cross" value="delete task">
+    </form> -->
+
     <div class="background-form">
         <form action="index.php" method="post" class="add-task">
             <input type="text" name="description" id="description" placeholder="Enter your task:" required>
             <input class="add-task_button" type="submit" value="Add task">
         </form>
-        <form action="index.php" method="post" class="delete-task">
-        <input type="submit" class="task_button-cross" value="delete task">
-        </form>
         <!-- <input type="submit" class="" value="update task"> -->
     </div>
+
 
 
     <img class="img_add" src="img/+.png" alt="">
