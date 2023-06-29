@@ -39,6 +39,10 @@ require "SQLqueries.php"
             <input type="text" name="description" id="description" placeholder="Enter your task:" required>
             <input class="add-task_button" type="submit" value="Add task">
         </form>
+        <form action="index.php" method="post" class="delete-task">
+        <input type="submit" class="task_button-cross" value="delete task">
+        </form>
+        <!-- <input type="submit" class="" value="update task"> -->
     </div>
 
 
