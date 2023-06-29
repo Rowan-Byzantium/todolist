@@ -7,5 +7,5 @@ if (array_key_exists('id_task', $_GET)){
     $isOkDelete = $queryDelete->execute([
         'id' => intval(strip_tags($_GET["id_task"]))
     ]);
-    header('location: ../index.php?okMsg=' . ($isOkDelete ? 'la tâche a été supprimée !' : 'Ça n\'a pas marché...'));
+    header('location: ../index.php?okMsg=' . ($isOkDelete ? 'la tâche a bien été supprimée !' : 'Ça n\'a pas marché...'));
 };

@@ -27,17 +27,11 @@ include "php/_function.php";
         echo $_GET['okMsg'];
     }
 
-    $query = $dbCo->prepare('SELECT id_task, date_creation, status, description FROM task WHERE status = 0 ORDER BY date_creation;');
-    $query->execute();
-    $result = $query->fetchAll();
-    echo getList($result);
+    displayLists(0)
    ?>
    <hr>
   <?php
-    $query = $dbCo->prepare('SELECT id_task, date_creation, status, description FROM task WHERE status = 1 ORDER BY date_creation;');
-    $query->execute();
-    $result = $query->fetchAll();
-    echo getList($result);
+    displayLists(1)
 
     ?>
 
@@ -46,9 +40,17 @@ include "php/_function.php";
     </form> -->
 
     <div class="background-form">
-        <form action="index.php" method="post" class="add-task">
+        <form action="queries/add.php" method="post" class="add-task">
             <input type="text" name="description" id="description" placeholder="Enter your task:" required>
             <input class="add-task_button" type="submit" value="Add task">
+        </form>
+        <!-- <input type="submit" class="" value="update task"> -->
+    </div>
+    <div class="modification-form">
+        <form action="queries/param.php" method="post" class="modif-task">
+            <input type="text" name="description" id="description" placeholder="Modify your task:" required>
+            <input type="hidden" name="id_task" value="<?=$id_task?>">
+            <input class="modif-task_button" type="submit" value="modif task">
         </form>
         <!-- <input type="submit" class="" value="update task"> -->
     </div>

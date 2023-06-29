@@ -64,6 +64,11 @@ body {
     flex-direction: column;
 }
 
+.task {
+    position: relative;
+    list-style: none;
+}
+
 @media screen and (min-width:1200px) {
     body {
         font-size: 1.5rem;
@@ -88,6 +93,8 @@ body {
     border-radius: 10px;
     gap: 1.5rem;
     color: var(--background);
+    height: 4rem;
+
 }
 
 .task_valid {
@@ -103,29 +110,44 @@ body {
     color: var(--background);
 }
 
+.task_param {
+    display: none;
+}
+
 .task_button-cross {
-    width: 1.5rem;
+    width: 2rem;
+}
+
+.task_button-param {
+    height: 100%;
+    cursor: pointer;
+}
+.task_button-param:hover {
+    rotate: 22.5deg;
+    cursor: pointer;
 }
 
 .task_button_in-progress {
-    width: 1.5rem;
+    width: 2rem;
     aspect-ratio: 1/1;
-    border-radius: 1rem;
+    border-radius: 2rem;
     background-color: var(--task);
     border: var(--background) 0.1rem solid;
 }
 
 .task_button_in-progress:hover {
-    width: 1.5rem;
+    width: 2rem;
     aspect-ratio: 1/1;
-    border-radius: 1rem;
+    border-radius: 2rem;
     background-color: var(--valid);
     border: var(--background) 0.1rem solid;
 }
 
 .task_button_valid {
-    display: none;
+    visibility: hidden;
 }
+
+
 
 @media screen and (min-width:720px) {
     .task_in-progress {
@@ -169,7 +191,7 @@ body {
     top: 0;
 }
 
-.add-task {
+.add-task, .modif-task {
     display: none;
     position: absolute;
     width: 90%;
