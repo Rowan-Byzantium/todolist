@@ -21,11 +21,15 @@ require "SQLqueries.php"
 
 <body>
     <H1 class="title">My Task</H1>
+    
     <?php
-    $query = $dbCo->prepare('SELECT id_task, date_creation, status, description FROM task  ORDER BY date_creation ASC;');
+    if(array_key_exists('okMsg', $_GET)){
+        echo $_GET['okMsg'];
+    }
+
+    $query = $dbCo->prepare('SELECT id_task, date_creation, status, description FROM task ORDER BY date_creation;');
     $query->execute();
     $result = $query->fetchAll();
-    // $id_task = $result["id_task"];
     echo getList($result);
 
     ?>

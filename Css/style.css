@@ -51,6 +51,17 @@ body{
     flex-direction: column;
 }
 
+@media screen and (min-width:1200px){
+    body{
+        font-size: 1.5rem;
+    }
+    .tasks-list{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        gap : .5rem;
+    }
+}
+
 
 .task_in_progress {
     background-color: var(--task);
@@ -86,13 +97,26 @@ body{
     border: var(--background) 0.1rem solid;
 }
 
+@media screen and (min-width:720px){
+    .task_valid{
+        height: 150px;
+    }
+    .task_button-cross {
+        width: 2rem;
+    }
+    .task_button-valid{
+        width: 2rem;
+    }
+}
+
+
 .task_title {
     margin-left: 2rem;
     margin-right: 2rem;
 }
 
 .img_add {
-    width: 4rem;
+    width: 5rem;
     position: fixed;
     bottom: 0;
     right: 0;
