@@ -7,7 +7,7 @@
  */
 function isValid($bool)
 {
-    return ($bool == 0) ? '"task_in_progress"' : '"task_valid"';
+    return ($bool == 0) ? '_in-progress' : '_valid"';
 }
 /**
  * Undocumented function
