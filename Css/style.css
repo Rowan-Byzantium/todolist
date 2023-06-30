@@ -67,7 +67,6 @@ body {
 }
 
 
-
 @media screen and (min-width:1200px) {
     body {
         font-size: 1.5rem;
@@ -77,6 +76,10 @@ body {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr;
         gap: .5rem;
+    }
+    
+    .task-itm{
+        width: 70%;
     }
 }
 .task-list {
