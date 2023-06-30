@@ -31,8 +31,12 @@ function getList($array)
                             </a>
                         </li>
                         <li class="task-itm display-none second-view">
-                            <h3 class="task_title">Create on ' . $task['date_creation'] . '</h3>
-                            <img class="task_button-param" src="img/param.png">
+                        <h3 class="task_title">Create on ' . $task['date_creation'] . '</h3>
+                        <img class="task_button-param" src="img/param.png">
+                        </li>
+                        <li class="task-arrow">
+                            <img class="task_button-up" src="img/chevron-UP.png">
+                            <img class="task_button-down" src="img/chevron-DOWN.png">
                         </li>
                     </ul>
                 </li>

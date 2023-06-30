@@ -38,8 +38,9 @@ function displayModificationForm(element, brother, sister) {
 
 function changeSideOfTask(task) { 
     task.addEventListener('click', function (e) {
+        console.log(this);
         this.firstElementChild.classList.toggle("display-none");
-        this.lastElementChild.classList.toggle("display-none");
+        this.children[1].classList.toggle("display-none");
         let idTask = this.parentElement.id;
         document.querySelector('.id').value = idTask;
     })

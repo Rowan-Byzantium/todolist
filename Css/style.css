@@ -6,6 +6,7 @@
     --delete: #FF0000;
     --task: #5C5959;
     --task-valid-background: #800080;
+    --arrow: #918C8C;
 }
 
 * {
@@ -44,7 +45,7 @@ h6 {
     margin: auto;
     margin-top: 2rem;
     display: block;
-    
+
 }
 
 /* Global */
@@ -79,29 +80,38 @@ body {
         gap: .5rem;
     }
 }
+
 .task-list {
     list-style: none;
+    margin-top: .5rem;
+    margin-bottom: .5rem;
 }
+
 .task-itm {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 90vw;
+    width: 70vw;
     padding: 1rem;
     margin: .5rem;
     gap: 1.5rem;
     height: 4rem;
 }
+
 .task_in-progress {
     background-color: var(--task);
     color: var(--background);
     border-radius: 20px;
+    display: flex;
+    border: 2px solid black;
 }
 
 .task_valid {
     background-color: var(--task-valid-background);
     color: var(--background);
     border-radius: 20px;
+    display: flex;
+    border: 2px solid black;
 }
 
 
@@ -117,6 +127,7 @@ body {
     height: 100%;
     cursor: pointer;
 }
+
 .task_button-param:hover {
     rotate: 22.5deg;
     cursor: pointer;
@@ -141,22 +152,42 @@ body {
 .task_button_valid {
     visibility: hidden;
 }
+.task-arrow {
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+padding-right: 1rem;
+background-color: var(--arrow);
+padding-left: 1rem;
+border-radius: 0 20px 20px 0;
+}
 
 
+.task_button-up {
+    width: 2rem;
+    margin: auto;
+}
+
+
+.task_button-down {
+    width: 2rem;
+    margin: auto;
+
+}
 
 @media screen and (min-width:720px) {
     .task_in-progress {
         height: 150px;
     }
-    
+
     .task_valid {
         height: 150px;
     }
-    
+
     .task_button-cross {
         width: 2rem;
     }
-    
+
     .task_button-valid {
         width: 2rem;
         height: 2rem;
@@ -186,7 +217,8 @@ body {
     top: 0;
 }
 
-.add-task, .modif-task {
+.add-task,
+.modif-task {
     display: none;
     position: absolute;
     width: 90%;
