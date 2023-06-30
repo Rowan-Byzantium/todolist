@@ -47,7 +47,7 @@ include "php/_function.php";
     <div class="modification-form">
         <form action="queries/param.php" method="post" class="modif-task">
             <input type="text" name="description" id="description" placeholder="Modify your task:" required>
-            <input type="hidden" name="id_task" value="<?= $id_task ?>">
+            <input class= "id" type="hidden" name="id_task" value="">
             <input class="modif-task_button" type="submit" value="modif task">
         </form>
         <!-- <input type="submit" class="" value="update task"> -->

@@ -21,19 +21,22 @@ function getList($array)
 
     $li = '<ul class="tasks-list">';
     foreach ($array as $task) {
-        $li .= '<li class="task">
-                    <li class="task' . isValid($task['status']) . ' task-1">
-                        <a href="queries/status.php?id_task='.$task['id_task'].'" class="task_button' . isValid($task['status']) . ' "></a>
-                        <h3 class="task_title">' . $task['description'] . '</h3>
-                        <a href="queries/delete.php?id_task=' . $task['id_task'] . '">
-                            <img class="task_button-cross" src="img/cross.png">
-                        </a>
-                    </li>
-                    <li class="task' . isValid($task['status']) . ' task-2 task_param">
-                        <h3 class="task_title">Create on ' . $task['date_creation'] . '</h3>
-                        <img class="task_button-param" src="img/param.png">
-                    </li>
-                </li>';
+        $li .= '<li id="'.$task['id_task'].'" class="task-list">
+                    <ul class="task' . isValid($task['status']) . '  js-task">
+                        <li class="task-itm first-view">
+                            <a href="queries/status.php?id_task='.$task['id_task'].'" class="task_button' . isValid($task['status']) . ' "></a>
+                            <h3 class="task_title">' . $task['description'] . '</h3>
+                            <a href="queries/delete.php?id_task=' . $task['id_task'] . '">
+                                <img class="task_button-cross" src="img/cross.png">
+                            </a>
+                        </li>
+                        <li class="task-itm display-none second-view">
+                            <h3 class="task_title">Create on ' . $task['date_creation'] . '</h3>
+                            <img class="task_button-param" src="img/param.png">
+                        </li>
+                    </ul>
+                </li>
+                ';
     }
     $li .= '</ul>';
     return $li;

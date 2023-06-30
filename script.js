@@ -6,11 +6,14 @@
 const addBtn = document.querySelector(".img_add");
 const addForm = document.querySelector(".add-task");
 const backgroundForm = document.querySelector(".background-form");
-const taskView = document.querySelector(".task-1");
-const taskParam = document.querySelector(".task-2");
+const arrayTasks = document.querySelectorAll(".task");
 const paramBtn = document.querySelector(".task_button-param");
 const paramForm = document.querySelector(".modif-task");
 const listOfTasks = document.querySelector(".tasks-list");
+const taskFirstView = document.querySelectorAll(".first-view");
+const taskSecondView = document.querySelector(".second-view");
+const ulTask = document.querySelectorAll(".js-task");
+
 
 
 
@@ -33,16 +36,12 @@ function displayModificationForm(element, brother, sister) {
     })
 };
 
-function changeSideOfTask(element, brother) {
-    element.addEventListener('click', function (e) {
-        element.style.display = "none"
-        brother.style.display = "flex"
-    })
-};
-function changeSideOfTask2(element, brother) {
-    element.addEventListener('click', function (e) {
-        element.style.display = "none"
-        brother.style.display = "flex"
+function changeSideOfTask(task) { 
+    task.addEventListener('click', function (e) {
+        this.firstElementChild.classList.toggle("display-none");
+        this.lastElementChild.classList.toggle("display-none");
+        let idTask = this.parentElement.id;
+        document.querySelector('.id').value = idTask;
     })
 };
 
@@ -51,19 +50,13 @@ function changeSideOfTask2(element, brother) {
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 /*
-                         +------------------------------------------+
-                         |                Execution                 |
-                         +------------------------------------------+ 
++------------------------------------------+
+|                Execution                 |
++------------------------------------------+ 
 */
 
 displayAddForm();
-console.log(taskView);
-console.log(taskParam);
-taskView.forEach(task => {
-    changeSideOfTask(task, taskView[task]);
-    displayModificationForm(paramBtn, paramForm, backgroundForm);
-});
-taskParam.forEach(task => {
-    changeSideOfTask(task, taskView);
+ulTask.forEach(task => {
+    changeSideOfTask(task);
     displayModificationForm(paramBtn, paramForm, backgroundForm);
 });
