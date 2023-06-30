@@ -12,7 +12,7 @@ const paramForm = document.querySelector(".modif-task");
 const listOfTasks = document.querySelector(".tasks-list");
 const taskFirstView = document.querySelectorAll(".first-view");
 const taskSecondView = document.querySelector(".second-view");
-const ulTask = document.querySelectorAll(".js-task");
+const ulTask = document.querySelectorAll(".task-itm");
 
 
 
@@ -36,11 +36,13 @@ function displayModificationForm(element, brother, sister) {
     })
 };
 
-function changeSideOfTask(task) { 
+function changeSideOfTask(task) {
     task.addEventListener('click', function (e) {
-        console.log(this);
-        this.firstElementChild.classList.toggle("display-none");
-        this.children[1].classList.toggle("display-none");
+        this.classList.toggle("display-none");
+        if (this.children[1].src === "http://localhost/projet_duo/todolist/img/param.png") {
+            this.parentElement.children[0].classList.toggle("display-none")
+        }
+        else { this.parentElement.children[1].classList.toggle("display-none"); };
         let idTask = this.parentElement.id;
         document.querySelector('.id').value = idTask;
     })

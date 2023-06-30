@@ -31,12 +31,16 @@ function getList($array)
                             </a>
                         </li>
                         <li class="task-itm display-none second-view">
-                        <h3 class="task_title">Create on ' . $task['date_creation'] . '</h3>
-                        <img class="task_button-param" src="img/param.png">
+                            <h3 class="task_title">Create on ' . $task['date_creation'] . '</h3>
+                            <img class="task_button-param" src="img/param.png">
                         </li>
                         <li class="task-arrow">
-                            <img class="task_button-up" src="img/chevron-UP.png">
-                            <img class="task_button-down" src="img/chevron-DOWN.png">
+                            <a href="queries/position.php?position=' . $task['position'] . '?id_task=' . $task['id_task'] . '">
+                                <img class="task_button-up" src="img/chevron-UP.png">
+                            </a>
+                            <a href="queries/position.php?position=' . $task['position'] . '?id_task=' . $task['id_task'] . '">
+                                <img class="task_button-down" src="img/chevron-DOWN.png">
+                            </a>
                         </li>
                     </ul>
                 </li>
@@ -48,7 +52,7 @@ function getList($array)
 
 function displayLists($status){
     global $dbCo;
-$query = $dbCo->prepare('SELECT id_task, date_creation, status, description FROM task WHERE status = :status ORDER BY date_creation;');
+$query = $dbCo->prepare('SELECT id_task, date_creation, status, description, position FROM task WHERE status = :status ORDER BY position;');
 $query->execute([
     'status' => $status
 ]);
