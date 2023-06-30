@@ -17,11 +17,11 @@ if (array_key_exists('id_task', $_GET)) {
     header('location: ../index.php');
 };
 
-
-
-
-
 ?>
+
+<!-- ne pas faire deux listes (supprimés ou clarifier les tâches validées)
+faire des notifications plus personnalisées et compréhensible, selon si positif ou pas-->
+
 
 
 <!-- <!DOCTYPE html>
