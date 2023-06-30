@@ -33,7 +33,7 @@ h6 {
 }
 
 /* Button */
-.button_return{
+.button_return {
     padding: .5rem;
     background-color: var(--task);
     color: var(--background);
@@ -46,9 +46,8 @@ h6 {
 }
 
 /* Global */
-.body_background {
+body {
     background-color: var(--background);
-    height: 100vh;
 }
 
 .title {
@@ -65,8 +64,25 @@ h6 {
     flex-direction: column;
 }
 
+.task {
+    position: relative;
+    list-style: none;
+}
 
-.task_in_progress {
+@media screen and (min-width:1200px) {
+    body {
+        font-size: 1.5rem;
+    }
+
+    .tasks-list {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        gap: .5rem;
+    }
+}
+
+
+.task_in-progress {
     background-color: var(--task);
     display: flex;
     align-items: center;
@@ -75,6 +91,10 @@ h6 {
     padding: 1rem;
     margin: .5rem;
     border-radius: 10px;
+    gap: 1.5rem;
+    color: var(--background);
+    height: 4rem;
+
 }
 
 .task_valid {
@@ -86,27 +106,76 @@ h6 {
     padding: 1rem;
     margin: .5rem;
     border-radius: 10px;
+    gap: 1rem;
+    color: var(--background);
+}
+
+.task_param {
+    display: none;
 }
 
 .task_button-cross {
-    width: 1.5rem;
+    width: 2rem;
 }
 
-.task_button-valid {
-    width: 1.5rem;
+.task_button-param {
+    height: 100%;
+    cursor: pointer;
+}
+.task_button-param:hover {
+    rotate: 22.5deg;
+    cursor: pointer;
+}
+
+.task_button_in-progress {
+    width: 2rem;
     aspect-ratio: 1/1;
-    border-radius: 1rem;
+    border-radius: 2rem;
     background-color: var(--task);
     border: var(--background) 0.1rem solid;
 }
 
-.task_title {
-    margin-left: 2rem;
-    margin-right: 2rem;
+.task_button_in-progress:hover {
+    width: 2rem;
+    aspect-ratio: 1/1;
+    border-radius: 2rem;
+    background-color: var(--valid);
+    border: var(--background) 0.1rem solid;
 }
 
+.task_button_valid {
+    visibility: hidden;
+}
+
+
+
+@media screen and (min-width:720px) {
+    .task_in-progress {
+        height: 150px;
+    }
+
+    .task_valid {
+        height: 150px;
+    }
+
+    .task_button-cross {
+        width: 2rem;
+    }
+
+    .task_button-valid {
+        width: 2rem;
+        height: 2rem;
+    }
+}
+
+
+/* .task_title {
+    margin-left: 2rem;
+    margin-right: 2rem;
+} */
+
 .img_add {
-    width: 4rem;
+    width: 5rem;
     position: fixed;
     bottom: 0;
     right: 0;
@@ -122,7 +191,7 @@ h6 {
     top: 0;
 }
 
-.add-task {
+.add-task, .modif-task {
     display: none;
     position: absolute;
     width: 90%;
@@ -147,7 +216,7 @@ input {
     border-radius: 2rem;
 }
 
-.info{
+.info {
     width: 100%;
     text-align: center;
     margin-top: 10rem;
