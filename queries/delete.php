@@ -17,6 +17,14 @@ if (
         $isOkDelete = $queryDelete->execute([
             'id' => intval(strip_tags($_GET["id_task"]))
         ]);
+
+        $queryPosition = $dbCo->prepare('UPDATE task SET position = :newpos WHERE position > :position');
+        $queryPosition->execute([
+            'newpos' => $_GET['position']-1,
+            'position' => $_GET['position'],
+        ]);
+
+
         header('location: ../index.php?okMsg=' . ($isOkDelete ? 'la tâche a bien été supprimée !' : 'Ça n\'a pas marché...'));
     }
 }
