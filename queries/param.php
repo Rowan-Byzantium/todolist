@@ -1,6 +1,7 @@
 <?php
 
 require "../php/_connection-Bdd.php";
+session_start();
 
 if (isset($_POST['description'])){
     $queryInsert = $dbCo->prepare("UPDATE task SET description = :description WHERE id_task = :id");

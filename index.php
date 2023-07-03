@@ -3,6 +3,10 @@
 require "php/_connection-Bdd.php";
 include "php/_function.php";
 
+session_start();
+
+$_SESSION['token'] = md5(uniqid(mt_rand(), true));
+
 ?>
 
 
@@ -30,7 +34,7 @@ include "php/_function.php";
     ?>
     <hr>
     <h2 class="title">My finished tasks</h2>
-    <?=displayLists(1)?>
+    <?= displayLists(1) ?>
 
     <!-- <form action="index.php" method="post" class="delete-task">
         <input type="submit" class="task_button-cross" value="delete task">
@@ -40,6 +44,7 @@ include "php/_function.php";
         <form action="queries/add.php" method="post" class="add-task">
             <input type="text" name="description" id="description" placeholder="Enter your task:" required>
             <input class="add-task_button" type="submit" value="Add task">
+            <input type="hidden" name="token" value="<?=$_SESSION['token']?>">
         </form>
         <!-- <input type="submit" class="" value="update task"> -->
     </div>
@@ -47,8 +52,9 @@ include "php/_function.php";
     <div class="modification-form">
         <form action="queries/param.php" method="post" class="modif-task">
             <input type="text" name="description" id="description" placeholder="Modify your task:" required>
-            <input class= "id" type="hidden" name="id_task" value="">
+            <input class="id" type="hidden" name="id_task" value="">
             <input class="modif-task_button" type="submit" value="modif task">
+            <input type="hidden" name="token" value="<?=$_SESSION['token'] ?>">
         </form>
         <!-- <input type="submit" class="" value="update task"> -->
     </div>
