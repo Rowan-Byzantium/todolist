@@ -74,7 +74,6 @@ document.querySelectorAll(".task_button-up").forEach(element => {
 document.querySelectorAll(".task_button-down").forEach(element => {
     document.querySelector(".task_button-down").addEventListener('mouseenter', function (e) {
         this.src = ("img/chevron-down-hover.png")
-        console.log(this);
         setTimeout(function () {
             document.querySelector(".task_button-down").src = ("img/chevron-down.png")
 
@@ -94,6 +93,7 @@ document.querySelectorAll(".task_button-down").forEach(element => {
 OpenCloseAccord();
 displayAddForm();
 ulTask.forEach(task => {
+    console.log(task);
     changeSideOfTask(task);
     displayModificationForm(paramBtn, paramForm, backgroundForm);
 });

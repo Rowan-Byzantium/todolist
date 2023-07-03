@@ -21,10 +21,10 @@ function getList($array)
 
     $li = '<ul class="tasks-list">';
     foreach ($array as $task) {
-        $li .= '<li id="'.$task['id_task'].'" class="task-list">
+        $li .= '<li id="' . $task['id_task'] . '" class="task-list">
                     <ul class="task' . isValid($task['status']) . '  js-task">
                         <li class="task-itm first-view">
-                            <a href="queries/status.php?id_task='.$task['id_task'].'" class="task_button' . isValid($task['status']) . ' "></a>
+                            <a href="queries/status.php?id_task=' . $task['id_task'] . '" class="task_button' . isValid($task['status']) . ' "></a>
                             <h3 class="task_title">' . $task['description'] . '</h3>
                             <a href="queries/delete.php?id_task=' . $task['id_task'] . '">
                                 <img class="task_button-cross" src="img/cross.png">
@@ -50,12 +50,13 @@ function getList($array)
     return $li;
 }
 
-function displayLists($status){
+function displayLists($status)
+{
     global $dbCo;
-$query = $dbCo->prepare('SELECT id_task, date_creation, status, description, position FROM task WHERE status = :status ORDER BY position;');
-$query->execute([
-    'status' => $status
-]);
-$result = $query->fetchAll();
-echo getList($result);
+    $query = $dbCo->prepare('SELECT id_task, date_creation, status, description, position FROM task WHERE status = :status ORDER BY position;');
+    $query->execute([
+        'status' => $status
+    ]);
+    $result = $query->fetchAll();
+    echo getList($result);
 }
