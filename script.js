@@ -30,10 +30,10 @@ function displayAddForm() {
         backgroundForm.style.display = "block"
     })
 };
-function displayModificationForm(element, brother, sister) {
-    element.addEventListener('click', function (e) {
-        brother.style.display = "flex"
-        sister.style.display = "block"
+function displayModificationForm(element, a, b) {
+    element.lastElementChild.addEventListener('click', function (e) {
+        a.style.display = "flex"
+        b.style.display = "block"
     })
 };
 
@@ -64,20 +64,21 @@ function OpenCloseAccord() {
     })
 }
 document.querySelectorAll(".task_button-up").forEach(element => {
-    document.querySelector(".task_button-up").addEventListener('mouseenter', function (e) {
+    element.addEventListener('mouseenter', function (e) {
         this.src = ("img/chevron-UP-hover.png")
-        setTimeout(function () {
-            document.querySelector(".task_button-up").src = ("img/chevron-UP.png")
-        }, 400);
+        let intervalUp = setInterval(() => {
+            this.src = ("img/chevron-UP.png")
+            clearInterval(intervalUp);
+        }, 300);
     });
 })
 document.querySelectorAll(".task_button-down").forEach(element => {
-    document.querySelector(".task_button-down").addEventListener('mouseenter', function (e) {
+    element.addEventListener('mouseenter', function (e) {
         this.src = ("img/chevron-down-hover.png")
-        setTimeout(function () {
-            document.querySelector(".task_button-down").src = ("img/chevron-down.png")
-
-        }, 400);
+        let intervalDown = setInterval(() => {
+            this.src = ("img/chevron-down.png")
+            clearInterval(intervalDown);
+        }, 300);
     })
 })
 
@@ -93,9 +94,8 @@ document.querySelectorAll(".task_button-down").forEach(element => {
 OpenCloseAccord();
 displayAddForm();
 ulTask.forEach(task => {
-    console.log(task);
     changeSideOfTask(task);
-    displayModificationForm(paramBtn, paramForm, backgroundForm);
+    displayModificationForm(task, paramForm, backgroundForm);
 });
 
 
