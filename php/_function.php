@@ -35,10 +35,10 @@ function getList($array)
                             <img class="task_button-param" src="img/param.png">
                         </li>
                         <li class="task-arrow">
-                            <a href="queries/position.php?position=' . $task['position'] . '?id_task=' . $task['id_task'] . '">
+                            <a href="queries/position.php?action=up&position=' . $task['position'] . '&id_task=' . $task['id_task'] . '">
                                 <img class="task_button-up" src="img/chevron-UP.png">
                             </a>
-                            <a href="queries/position.php?position=' . $task['position'] . '?id_task=' . $task['id_task'] . '">
+                            <a href="queries/position.php?action=down&position=' . $task['position'] . '&id_task=' . $task['id_task'] . '">
                                 <img class="task_button-down" src="img/chevron-DOWN.png">
                             </a>
                         </li>
