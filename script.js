@@ -7,6 +7,7 @@ const addBtn = document.querySelector(".img_add");
 const addForm = document.querySelector(".add-task");
 const backgroundForm = document.querySelector(".background-form");
 const arrayTasks = document.querySelectorAll(".task");
+const allParamBtn = document.querySelectorAll(".task_button-param");
 const paramBtn = document.querySelector(".task_button-param");
 const paramForm = document.querySelector(".modif-task");
 const listOfTasks = document.querySelector(".tasks-list");
@@ -43,10 +44,43 @@ function changeSideOfTask(task) {
             this.parentElement.children[0].classList.toggle("display-none")
         }
         else { this.parentElement.children[1].classList.toggle("display-none"); };
-        let idTask = this.parentElement.id;
+        let idTask = this.parentElement.parentElement.id;
         document.querySelector('.id').value = idTask;
     })
+
 };
+
+function OpenCloseAccord() {
+    document.querySelector(".accord").addEventListener('click', function (e) {
+        if (document.querySelector(".plusMinus").src === ("http://localhost/projet_duo/todolist/img/plus.png")) {
+            document.querySelector(".accordeon").classList.toggle("display-none")
+            document.querySelector(".plusMinus").src = ("img/minus.png")
+        }
+        else if (document.querySelector(".plusMinus").src === ("http://localhost/projet_duo/todolist/img/minus.png")) {
+            document.querySelector(".accordeon").classList.toggle("display-none")
+            document.querySelector(".plusMinus").src = ("img/plus.png")
+        }
+
+    })
+}
+document.querySelectorAll(".task_button-up").forEach(element => {
+    document.querySelector(".task_button-up").addEventListener('mouseenter', function (e) {
+        this.src = ("img/chevron-UP-hover.png")
+        setTimeout(function () {
+            document.querySelector(".task_button-up").src = ("img/chevron-UP.png")
+        }, 400);
+    });
+})
+document.querySelectorAll(".task_button-down").forEach(element => {
+    document.querySelector(".task_button-down").addEventListener('mouseenter', function (e) {
+        this.src = ("img/chevron-down-hover.png")
+        console.log(this);
+        setTimeout(function () {
+            document.querySelector(".task_button-down").src = ("img/chevron-down.png")
+
+        }, 400);
+    })
+})
 
 
 
@@ -57,9 +91,11 @@ function changeSideOfTask(task) {
 |                Execution                 |
 +------------------------------------------+ 
 */
-
+OpenCloseAccord();
 displayAddForm();
 ulTask.forEach(task => {
     changeSideOfTask(task);
     displayModificationForm(paramBtn, paramForm, backgroundForm);
 });
+
+

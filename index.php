@@ -28,9 +28,16 @@ include "php/_function.php";
 
     echo displayLists(0)
     ?>
+    <div class="img_add-container">
+        <img class="img_add" src="img/+.png" alt="">
+    </div>
     <hr>
-    <h2 class="title">My finished tasks</h2>
-    <?=displayLists(1)?>
+    <div class="accord">
+        <h2 class="title">My finished tasks</h2><img class="plusMinus" src="img/plus.png" alt="">
+    </div>
+    <div class="accordeon display-none">
+    <?= displayLists(1) ?>
+    </div>
 
     <!-- <form action="index.php" method="post" class="delete-task">
         <input type="submit" class="task_button-cross" value="delete task">
@@ -47,7 +54,7 @@ include "php/_function.php";
     <div class="modification-form">
         <form action="queries/param.php" method="post" class="modif-task">
             <input type="text" name="description" id="description" placeholder="Modify your task:" required>
-            <input class= "id" type="hidden" name="id_task" value="">
+            <input class="id" type="hidden" name="id_task" value="">
             <input class="modif-task_button" type="submit" value="modif task">
         </form>
         <!-- <input type="submit" class="" value="update task"> -->
@@ -55,7 +62,6 @@ include "php/_function.php";
 
 
 
-    <img class="img_add" src="img/+.png" alt="">
 </body>
 <script src="script.js"></script>
 

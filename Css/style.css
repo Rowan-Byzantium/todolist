@@ -36,6 +36,14 @@ h6 {
 } */
 
 /* Button */
+.plusMinus {
+    width: 5%;
+    height: 5%;
+    margin: auto;
+    margin-left: 0;
+    aspect-ratio: 1/1;
+}
+
 .button_return {
     padding: .5rem;
     background-color: var(--task);
@@ -78,8 +86,8 @@ body {
         grid-template-columns: 1fr 1fr 1fr 1fr;
         gap: .5rem;
     }
-    
-    .task-itm{
+
+    .task-itm {
         width: 70%;
     }
 }
@@ -155,14 +163,14 @@ body {
 .task_button_valid {
     visibility: hidden;
 }
+
 .task-arrow {
-display: flex;
-flex-direction: column;
-justify-content: space-between;
-padding-right: 1rem;
-background-color: var(--arrow);
-padding-left: 1rem;
-border-radius: 0 20px 20px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: .50rem 1rem .50rem 1rem ;
+    background-color: var(--arrow);
+    border-radius: 0 20px 20px 0;
 }
 
 
@@ -170,6 +178,7 @@ border-radius: 0 20px 20px 0;
     width: 2rem;
     margin: auto;
 }
+
 
 
 .task_button-down {
@@ -202,12 +211,13 @@ border-radius: 0 20px 20px 0;
     margin-left: 2rem;
     margin-right: 2rem;
 } */
-
+.img_add-container{
+    display: flex;
+align-items: center;
+justify-content: center;
+}
 .img_add {
     width: 5rem;
-    position: fixed;
-    bottom: 0;
-    right: 0;
 }
 
 /* Form */
@@ -252,8 +262,17 @@ input {
     margin-top: 10rem;
 }
 
+.accord {
+    display: flex;
+    width: 100%;
+}
+
 
 /* Utilities */
 .display-none {
     display: none;
+}
+
+.visibility-hidden {
+    visibility: hidden;
 }
