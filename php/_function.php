@@ -44,7 +44,7 @@ function getList($array)
                         </li>
                     </ul>
                 </li>
-            ';
+                ';
     }
     $li .= '</ul>';
     return $li;

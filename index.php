@@ -32,9 +32,16 @@ $_SESSION['token'] = md5(uniqid(mt_rand(), true));
 
     echo displayLists(0)
     ?>
+    <div class="img_add-container">
+        <img class="img_add" src="img/+.png" alt="">
+    </div>
     <hr>
-    <h2 class="title">My finished tasks</h2>
+    <div class="accord">
+        <h2 class="title">My finished tasks</h2><img class="plusMinus" src="img/plus.png" alt="">
+    </div>
+    <div class="accordeon display-none">
     <?= displayLists(1) ?>
+    </div>
 
     <!-- <form action="index.php" method="post" class="delete-task">
         <input type="submit" class="task_button-cross" value="delete task">
@@ -61,7 +68,6 @@ $_SESSION['token'] = md5(uniqid(mt_rand(), true));
 
 
 
-    <img class="img_add" src="img/+.png" alt="">
 </body>
 <script src="script.js"></script>
 
