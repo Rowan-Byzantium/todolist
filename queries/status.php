@@ -3,20 +3,25 @@
 require "../php/_connection-Bdd.php";
 session_start();
 
-
-
-
 // dans le header : ajouté un paramètre msg='' avec un ternaire about isok
 // dans la page index : faire un if array key exists 'msg', $_GET
 
-if (array_key_exists('id_task', $_GET)) {
-    $queryInsert = $dbCo->prepare("UPDATE task SET status = 1 WHERE id_task = :id");
-    $isOkStatus = $queryInsert->execute([
-        'id' => intval(strip_tags($_GET["id_task"]))
-    ]);
-    // echo '<p>' . ($isOk ? 'la tâche a été validée':'erreur') . '</p>';
-    header('location: ../index.php');
-};
+if (
+    !array_key_exists('token', $_SESSION) ||
+    !array_key_exists('token', $_REQUEST) ||
+    $_SESSION['token'] !== $_REQUEST['token']
+) {
+    echo 'error CSRF';
+} else {
+    if (array_key_exists('id_task', $_GET)) {
+        $queryInsert = $dbCo->prepare("UPDATE task SET status = 1 WHERE id_task = :id");
+        $isOkStatus = $queryInsert->execute([
+            'id' => intval(strip_tags($_GET["id_task"]))
+        ]);
+        // echo '<p>' . ($isOk ? 'la tâche a été validée':'erreur') . '</p>';
+        header('location: ../index.php');
+    }
+}
 
 ?>
 

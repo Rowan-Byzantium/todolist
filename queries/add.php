@@ -11,8 +11,8 @@ $maxPosition = intval($maxPosition[0]['positionTask']);
 
 if (
     !array_key_exists('token', $_SESSION) ||
-    !array_key_exists('token', $_POST) ||
-    $_SESSION['token'] !== $_POST['token']
+    !array_key_exists('token', $_REQUEST) ||
+    $_SESSION['token'] !== $_REQUEST['token']
 ) {
     echo 'error CSRF';
 } else {

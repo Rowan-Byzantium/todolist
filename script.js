@@ -50,13 +50,13 @@ function changeSideOfTask(task) {
 
 };
 
-function OpenCloseAccord() {
+function openCloseAccord() {
     document.querySelector(".accord").addEventListener('click', function (e) {
-        if (document.querySelector(".plusMinus").src === ("http://localhost/projet_duo/todolist/img/plus.png")) {
+        if (document.querySelector(".plusMinus").src === ("http://localhost/todolist/img/plus.png")) {
             document.querySelector(".accordeon").classList.toggle("display-none")
             document.querySelector(".plusMinus").src = ("img/minus.png")
         }
-        else if (document.querySelector(".plusMinus").src === ("http://localhost/projet_duo/todolist/img/minus.png")) {
+        else if (document.querySelector(".plusMinus").src === ("http://localhost/todolist/img/minus.png")) {
             document.querySelector(".accordeon").classList.toggle("display-none")
             document.querySelector(".plusMinus").src = ("img/plus.png")
         }
@@ -91,7 +91,7 @@ document.querySelectorAll(".task_button-down").forEach(element => {
 |                Execution                 |
 +------------------------------------------+ 
 */
-OpenCloseAccord();
+openCloseAccord();
 displayAddForm();
 ulTask.forEach(task => {
     changeSideOfTask(task);
