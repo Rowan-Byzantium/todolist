@@ -20,20 +20,17 @@ include "php/_function.php";
 ?>
 
 <body>
-    <H1 class="title">My Task</H1>
-
+    <H1 class="title">My Tasks</H1>
     <?php
     if (array_key_exists('okMsg', $_GET)) {
-        echo $_GET['okMsg'];
-    }
+        $Message = $_GET['okMsg'];
+    };
 
-    displayLists(0)
-   ?>
-   <hr>
-  <?php
-    displayLists(1)
-
+    echo displayLists(0)
     ?>
+    <hr>
+    <h2 class="title">My finished tasks</h2>
+    <?=displayLists(1)?>
 
     <!-- <form action="index.php" method="post" class="delete-task">
         <input type="submit" class="task_button-cross" value="delete task">
@@ -46,6 +43,7 @@ include "php/_function.php";
         </form>
         <!-- <input type="submit" class="" value="update task"> -->
     </div>
+
     <div class="modification-form">
         <form action="queries/param.php" method="post" class="modif-task">
             <input type="text" name="description" id="description" placeholder="Modify your task:" required>

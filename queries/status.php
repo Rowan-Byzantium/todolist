@@ -17,11 +17,9 @@ if (array_key_exists('id_task', $_GET)) {
     header('location: ../index.php');
 };
 
-
-
-
-
 ?>
+
+
 
 
 <!-- <!DOCTYPE html>

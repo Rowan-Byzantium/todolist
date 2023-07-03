@@ -15,3 +15,12 @@ VALUES              ('passer l aspirateur'),
                     ('trier le linge sale'),
                     ('organiser le bureau'),
                     ('racheter à manger')
+
+-- UPDATE task SET position = :position WHERE id_task = :id;
+-- UPDATE task SET position = :position WHERE position = :positionprev;
+-- -- UPDATE task SET position = :position WHERE position = :positionnext ; 
+
+-- execute([
+--     'position' => $_GET['position'] +1, 
+--     'positionprev' => $_GET['position'] -1 
+-- ])
