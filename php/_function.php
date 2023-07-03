@@ -26,7 +26,7 @@ function getList($array)
                         <li class="task-itm first-view">
                             <a href="queries/status.php?id_task=' . $task['id_task'] . '" class="task_button' . isValid($task['status']) . ' "></a>
                             <h3 class="task_title">' . $task['description'] . '</h3>
-                            <a href="queries/delete.php?id_task=' . $task['id_task'] . '">
+                            <a href="queries/delete.php?id_task=' . $task['id_task'] . '&token=' . $_SESSION['token'] . '">
                                 <img class="task_button-cross" src="img/cross.png">
                             </a>
                         </li>

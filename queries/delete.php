@@ -3,10 +3,20 @@
 require "../php/_connection-Bdd.php";
 session_start();
 
-if (array_key_exists('id_task', $_GET)){
-    $queryDelete = $dbCo->prepare('DELETE FROM task WHERE id_task = :id');
-    $isOkDelete = $queryDelete->execute([
-        'id' => intval(strip_tags($_GET["id_task"]))
-    ]);
-    header('location: ../index.php?okMsg=' . ($isOkDelete ? 'la tâche a bien été supprimée !' : 'Ça n\'a pas marché...'));
-};
+// var_dump($_REQUEST);
+
+if (
+    !array_key_exists('token', $_SESSION) ||
+    !array_key_exists('token', $_REQUEST) ||
+    $_SESSION['token'] !== $_REQUEST['token']
+) {
+    echo 'error CSRF';
+} else {
+    if (array_key_exists('id_task', $_GET)) {
+        $queryDelete = $dbCo->prepare('DELETE FROM task WHERE id_task = :id');
+        $isOkDelete = $queryDelete->execute([
+            'id' => intval(strip_tags($_GET["id_task"]))
+        ]);
+        header('location: ../index.php?okMsg=' . ($isOkDelete ? 'la tâche a bien été supprimée !' : 'Ça n\'a pas marché...'));
+    }
+}
