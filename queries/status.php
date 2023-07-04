@@ -13,13 +13,26 @@ if (
 ) {
     echo 'error CSRF';
 } else {
-    if (array_key_exists('id_task', $_GET)) {
+    if (array_key_exists('id_task', $_REQUEST) && array_key_exists('pos', $_REQUEST)) {
         $queryInsert = $dbCo->prepare("UPDATE task SET status = 1 WHERE id_task = :id");
         $isOkStatus = $queryInsert->execute([
-            'id' => intval(strip_tags($_GET["id_task"]))
+            'id' => intval(strip_tags($_REQUEST["id_task"]))
         ]);
         // echo '<p>' . ($isOk ? 'la tâche a été validée':'erreur') . '</p>';
+        
+        $queryPos = $dbCo->prepare('UPDATE task SET position = 0 WHERE id_task = :id');
+        $isOkStatus = $queryPos->execute([
+            'id' => (int)strip_tags($_REQUEST["id_task"])
+        ]);
+
+        $queryPosition = $dbCo->prepare('UPDATE task SET position = position - 1 WHERE position > :position');
+        $queryPosition->execute([
+            'position' => $_REQUEST['pos']
+        ]);
         header('location: ../index.php');
+    }
+    else {
+        echo 'id or position error';
     }
 }
 
