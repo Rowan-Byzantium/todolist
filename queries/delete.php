@@ -18,9 +18,8 @@ if (
             'id' => intval(strip_tags($_GET["id_task"]))
         ]);
 
-        $queryPosition = $dbCo->prepare('UPDATE task SET position = :newpos WHERE position > :position');
+        $queryPosition = $dbCo->prepare('UPDATE task SET position = position-1 WHERE position > :position');
         $queryPosition->execute([
-            'newpos' => $_GET['position']-1,
             'position' => $_GET['position'],
         ]);
 

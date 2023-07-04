@@ -14,6 +14,8 @@ const listOfTasks = document.querySelector(".tasks-list");
 const taskFirstView = document.querySelectorAll(".first-view");
 const taskSecondView = document.querySelector(".second-view");
 const ulTask = document.querySelectorAll(".task-itm");
+const taskValid = document.querySelectorAll(".task_valid"); 
+const btnAccord = document.querySelector(".btn-accord")
 
 
 
@@ -37,28 +39,30 @@ function displayModificationForm(element, a, b) {
     })
 };
 
+
 function changeSideOfTask(task) {
     task.addEventListener('click', function (e) {
         this.classList.toggle("display-none");
-        if (this.children[1].src === "http://localhost/projet_duo/todolist/img/param.png") {
+        if (this.classList[1]==="second-view") {
             this.parentElement.children[0].classList.toggle("display-none")
         }
         else { this.parentElement.children[1].classList.toggle("display-none"); };
         let idTask = this.parentElement.parentElement.id;
         document.querySelector('.id').value = idTask;
     })
-
+    
 };
-
 function openCloseAccord() {
-    document.querySelector(".accord").addEventListener('click', function (e) {
-        if (document.querySelector(".plusMinus").src === ("http://localhost/todolist/img/plus.png")) {
-            document.querySelector(".accordeon").classList.toggle("display-none")
-            document.querySelector(".plusMinus").src = ("img/minus.png")
-        }
-        else if (document.querySelector(".plusMinus").src === ("http://localhost/todolist/img/minus.png")) {
+    btnAccord.addEventListener('click', function (e) {
+        if (btnAccord.dataset.open === "true") {
             document.querySelector(".accordeon").classList.toggle("display-none")
             document.querySelector(".plusMinus").src = ("img/plus.png")
+            btnAccord.dataset.open = "false"
+        }
+        else if (btnAccord.dataset.open === "false") {
+            document.querySelector(".accordeon").classList.toggle("display-none")
+            document.querySelector(".plusMinus").src = ("img/minus.png")
+            btnAccord.dataset.open = "true"
         }
 
     })
@@ -82,6 +86,10 @@ document.querySelectorAll(".task_button-down").forEach(element => {
     })
 })
 
+
+taskValid.forEach(element => {
+    element.lastElementChild.style.display="none";
+});
 
 
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
