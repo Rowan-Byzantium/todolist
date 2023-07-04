@@ -278,6 +278,14 @@ input {
     display: none;
 }
 
+.display-flex{
+    display: flex;
+}
+
+.display-block{
+    display: block;
+}
+
 .visibility-hidden {
     visibility: hidden;
 }
