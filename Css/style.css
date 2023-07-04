@@ -36,12 +36,17 @@ h6 {
 } */
 
 /* Button */
+
 .plusMinus {
-    width: 5%;
-    height: 5%;
+    width: 100%;
+}
+
+.btn-accord {
+    border-radius: 50%;
+    width: 2rem;
+    height: 2rem;
     margin: auto;
     margin-left: 0;
-    aspect-ratio: 1/1;
 }
 
 .button_return {

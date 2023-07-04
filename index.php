@@ -37,7 +37,7 @@ $_SESSION['token'] = md5(uniqid(mt_rand(), true));
     </div>
     <hr>
     <div class="accord">
-        <h2 class="title">My finished tasks</h2><img class="plusMinus" src="img/plus.png" alt="">
+        <h2 class="title">My finished tasks</h2><button type="button" class="btn-accord" data-open="false"><img class="plusMinus" src="img/plus.png" alt=""></button>
     </div>
     <div class="accordeon display-none">
     <?= displayLists(1) ?>
