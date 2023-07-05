@@ -23,7 +23,7 @@ if ($_REQUEST['action'] === 'down' && $pos < $maxpos) {
     ]);
     header('location: ../index.php');
 }
-if ($_REQUEST['action'] === 'up'&& $pos > 1) {
+if ($_REQUEST['action'] === 'up'&& $pos > 0) {
     $queryPosition = $dbCo->prepare('UPDATE task SET position = :position WHERE position = :positionPrev');
     $queryPosition->execute([
         'positionPrev' => $_GET['position'] - 1,
