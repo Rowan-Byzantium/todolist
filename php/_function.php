@@ -1,4 +1,4 @@
-<?php
+<?php 
 require "php/_connection-bdd.php";
 /**
  * A function to apply a class to the task. 
@@ -26,7 +26,7 @@ function getList($array)
                         <li class="task-itm first-view">
                             <a href="queries/status.php?id_task=' . $task['id_task'] . '&token=' . $_SESSION['token'] . '&pos=' . $task['position'] . '" class="task_button' . isValid($task['status']) . ' "></a>
                             <h3 class="task_title">' . $task['description'] . '</h3>
-                            <button type="button" class="button-delete">
+                            <button id="token-csrf" value="'.$_SESSION['token'].'" type="button" class="button-delete">
                                 <img data-id-task="' . $task['id_task'] . '" data-pos="' . $task['position'] . '" class="task_button-cross" src="img/cross.png">
                             </button>
                         </li>
