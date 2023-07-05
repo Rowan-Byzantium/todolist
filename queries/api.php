@@ -2,8 +2,7 @@
 session_start();
 require "../php/_connection-bdd.php";
 $data = json_decode(file_get_contents('php://input'), true);
-$error =
-    $isOk = false;
+$isOk = false;
 $idTask = (int)strip_tags($data['idTask']);
 $positionTask = (int)strip_tags($data['positionTask']);
 

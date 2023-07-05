@@ -89,6 +89,9 @@ function openCloseAccord() {
 
     })
 }
+
+
+
 document.querySelectorAll(".task_button-up").forEach(element => {
     element.addEventListener('mouseenter', function (e) {
         this.src = ("img/chevron-UP-hover.png")
