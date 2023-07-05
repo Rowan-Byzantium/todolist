@@ -45,7 +45,6 @@ function getList($array)
                     </ul>
                 </li>
                 ';
-                echo $task['position'];
     }
     $li .= '</ul>';
     return $li;

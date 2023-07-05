@@ -19,7 +19,6 @@ const btnAccord = document.querySelector(".btn-accord")
 
 
 
-
 //----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 /*
                          +------------------------------------------+
@@ -32,18 +31,21 @@ function displayAddForm() {
         backgroundForm.style.display = "block"
     })
 };
-// function deleteAddForm() {
-//     backgroundForm.addEventListener('click', function (e) {
-//         addForm.style.display = "none"
-//         backgroundForm.style.display = "none"
-//     })
-// };
 function displayModificationForm(element, a, b) {
     element.lastElementChild.addEventListener('click', function (e) {
         e.stopPropagation()
         a.style.display = "flex"
         b.style.display = "block"
     })
+};
+
+function deleteModificationForm(a, b) {
+    b.addEventListener('click', function (e) {
+        a.style.display = "none"
+        b.style.display = "none"
+        e.stopPropagation()
+    })
+    
 };
 
 
@@ -62,7 +64,9 @@ function changeSideOfTask(task) {
         document.querySelector('.id').value = idTask;
     })
 
+
 };
+
 function openCloseAccord() {
     btnAccord.addEventListener('click', function (e) {
         if (btnAccord.dataset.open === "true") {
@@ -105,19 +109,29 @@ document.querySelectorAll(".task_button-down").forEach(element => {
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-    /*
-    +------------------------------------------+
-    |                Execution                 |
-    +------------------------------------------+ 
-    */
-    openCloseAccord();
-    displayAddForm();
-    // deleteAddForm();
-    ulTask.forEach(task => {
-        changeSideOfTask(task);
-        displayModificationForm(task, paramForm, backgroundForm);
-    });
+/*
++------------------------------------------+
+|                Execution                 |
++------------------------------------------+ 
+*/
+openCloseAccord();
+displayAddForm();
+deleteAddForm(addForm, backgroundForm);
+ulTask.forEach(task => {
+    changeSideOfTask(task);
+    displayModificationForm(task, paramForm, backgroundForm);
+    deleteModificationForm(paramForm, backgroundForm);
+});
 
+// window.addEventListener("click", (event) => {
+//     if (
+//         !event.target.matches('input[name=description]')
+//     ) {
+//         window.close('add.php')
+//     }
+// });
+
+// let inputModif = 'form ';
 
 
 
@@ -125,3 +139,13 @@ document.querySelectorAll(".task_button-down").forEach(element => {
 
 // -----------------------------------------------------------/
 
+// window.addEventListener("click", function(e) {
+
+//   // Si ce n'est pas #ma_div ni un de ses enfants
+//   if( !e.target.matches(inputModif)  ) {
+//     console.log('test');
+//   }
+//   //target matches demande un sélecteur
+// });
+//mettre un stop propagation sur le event listener du form 
+// && !$.contains(inputModif[0],e.target)
