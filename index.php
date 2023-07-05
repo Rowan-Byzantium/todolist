@@ -47,17 +47,13 @@ $_SESSION['token'] = md5(uniqid(mt_rand(), true));
         <input type="submit" class="task_button-cross" value="delete task">
     </form> -->
 
-    <div class="background-form">
-        <form action="queries/add.php" method="post" class="add-task">
+    <div class="background-form display-none">
+        <form action="queries/add.php" method="post" class="add-task display-none">
             <input type="text" name="description" id="description" placeholder="Enter your task:" required>
             <input class="add-task_button" type="submit" value="Add task">
             <input type="hidden" name="token" value="<?=$_SESSION['token']?>">
         </form>
-        <!-- <input type="submit" class="" value="update task"> -->
-    </div>
-
-    <div class="modification-form">
-        <form action="queries/param.php" method="post" class="modif-task">
+        <form method="post" class="modif-task display-none" id="modif-form">
             <input type="text" name="description" id="description" placeholder="Modify your task:" required>
             <input class="id" type="hidden" name="id_task" value="">
             <input class="modif-task_button" type="submit" value="modif task">
@@ -65,6 +61,7 @@ $_SESSION['token'] = md5(uniqid(mt_rand(), true));
         </form>
         <!-- <input type="submit" class="" value="update task"> -->
     </div>
+
 
 
 
