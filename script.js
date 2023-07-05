@@ -45,9 +45,16 @@ function deleteModificationForm(a, b) {
         b.style.display = "none"
         e.stopPropagation()
     })
+};
+function deleteAddForm(a, b) {
+    b.addEventListener('click', function (e) {
+        b.style.display = "none"
+    });
+    a.addEventListener('click', function (e) {
+        e.stopPropagation();
+    });
     
 };
-
 
 function changeSideOfTask(task) {
     task.addEventListener('click', function (e) {
