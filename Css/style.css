@@ -37,6 +37,10 @@ h6 {
 
 /* Button */
 
+.button-delete{
+    background-color: var(--task);
+    border: none;
+}
 .plusMinus {
     width: 100%;
 }

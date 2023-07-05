@@ -1,6 +1,6 @@
 <?php
 
-require "../php/_connection-Bdd.php";
+require "../php/_connection-bdd.php";
 session_start();
 
 $query = $dbCo->prepare("SELECT MAX(position) AS maxpo FROM task ");

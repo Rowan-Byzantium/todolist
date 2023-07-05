@@ -1,6 +1,6 @@
 <?php
 
-require "php/_connection-Bdd.php";
+require "php/_connection-bdd.php";
 include "php/_function.php";
 
 session_start();
@@ -69,6 +69,7 @@ $_SESSION['token'] = md5(uniqid(mt_rand(), true));
 
 
 </body>
+<script src="asynch.js"></script>
 <script src="script.js"></script>
 
 </html>
