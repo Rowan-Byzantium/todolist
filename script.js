@@ -27,39 +27,45 @@ const btnAccord = document.querySelector(".btn-accord")
 */
 function displayAddForm() {
     addBtn.addEventListener('click', function (e) {
-        addForm.style.display = "flex"
-        backgroundForm.style.display = "block"
+        addForm.classList.remove("display-none")
+        backgroundForm.classList.remove("display-none")
     })
 };
 function displayModificationForm(element, a, b) {
     element.lastElementChild.addEventListener('click', function (e) {
         e.stopPropagation()
-        a.style.display = "flex"
-        b.style.display = "block"
+        a.classList.remove("display-none")
+        b.classList.remove("display-none")
     })
 };
 
-function deleteModificationForm(a, b) {
-    b.addEventListener('click', function (e) {
-        a.style.display = "none"
-        b.style.display = "none"
+function deleteModificationForm(form, background) {
+    background.addEventListener('click', function (e) {
+        if (e.target !== background) {
+            return
+        } 
+        form.classList.add("display-none")
+        background.classList.add("display-none")
+
         e.stopPropagation()
     })
 };
-function deleteAddForm(a, b) {
-    b.addEventListener('click', function (e) {
-        b.style.display = "none"
+function deleteAddForm(addform, background) {
+    background.addEventListener('click', function (e) {
+        if (e.target !== background) {
+            return
+        }
+        background.classList.add("display-none")
     });
-    a.addEventListener('click', function (e) {
+    addform.addEventListener('click', function (e) {
         e.stopPropagation();
     });
-    
+
 };
 
 function changeSideOfTask(task) {
     task.addEventListener('click', function (e) {
-        console.log(e.target.tagName);
-        if (e.target.tagName !== "H3" && e.target.tagName !== "LI") {
+        if (e.target.tagName !== "H3") {
             return
         };
         this.classList.toggle("display-none");
@@ -90,8 +96,6 @@ function openCloseAccord() {
     })
 }
 
-
-
 document.querySelectorAll(".task_button-up").forEach(element => {
     element.addEventListener('mouseenter', function (e) {
         this.src = ("img/chevron-UP-hover.png")
@@ -111,13 +115,13 @@ document.querySelectorAll(".task_button-down").forEach(element => {
 
 
 
-    taskValid.forEach(element => {
-        element.children[1].lastElementChild.style.display = "none"
-        element.lastElementChild.style.display = "none";
-    });
+taskValid.forEach(element => {
+    element.children[1].lastElementChild.style.display = "none"
+    element.lastElementChild.style.display = "none";
+});
 
 
-    //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 /*
 +------------------------------------------+
@@ -130,8 +134,8 @@ deleteAddForm(addForm, backgroundForm);
 ulTask.forEach(task => {
     changeSideOfTask(task);
     displayModificationForm(task, paramForm, backgroundForm);
-    deleteModificationForm(paramForm, backgroundForm);
 });
+deleteModificationForm(paramForm, backgroundForm);
 
 // window.addEventListener("click", (event) => {
 //     if (
@@ -157,5 +161,5 @@ ulTask.forEach(task => {
 //   }
 //   //target matches demande un sélecteur
 // });
-//mettre un stop propagation sur le event listener du form 
+//mettre un stop propagation sur le event listener du form
 // && !$.contains(inputModif[0],e.target)
