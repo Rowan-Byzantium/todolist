@@ -51,7 +51,8 @@ function changeDescription(idTask, description) {
     const data = {
         action: 'changeDescription',
         idTask: idTask,
-        description: description
+        description: description,
+        token: getCsrfToken()
     }
 
     return callAPI('PUT', data);
