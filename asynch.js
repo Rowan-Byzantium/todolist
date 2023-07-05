@@ -62,7 +62,8 @@ function deleteTask(idTask, positionTask) {
     const data = {
         action: 'deleteTask',
         idTask: idTask,
-        positionTask: positionTask
+        positionTask: positionTask,
+        token: getCsrfToken()
     };
     return callAPI('DELETE', data);
 }
@@ -82,4 +83,7 @@ async function callAPI(method, data) {
     catch (error) {
         console.error("Unable to load datas from the server : " + error);
     }
+}
+function getCsrfToken() {
+    return document.querySelector('#token-csrf').value;
 }

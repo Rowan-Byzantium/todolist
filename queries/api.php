@@ -1,11 +1,27 @@
+
 <?php 
+    session_start();
     require "../php/_connection-bdd.php";
     $data = json_decode(file_get_contents('php://input'), true);
     header('content-type:application/json');
 
     $isOk = false;
     $idTask = (int)strip_tags($data['idTask']);
-    
+        
+if (
+    !array_key_exists('token', $_SESSION) ||
+    !array_key_exists('token', $data) ||
+    $_SESSION['token'] !== $data['token']
+) {
+    echo json_encode([
+        'result' => 'false',
+        'error' => 'Accès refusé, jeton invalide.',
+        'token session' => $_SESSION['token'],
+        'token data' => $data['token']
+
+    ]);
+    exit;
+}
     if ($data['action'] === 'deleteTask' && $_SERVER['REQUEST_METHOD'] === 'DELETE') {
         $positionTask = (int)strip_tags($data['positionTask']);
         $query = $dbCo->prepare("DELETE FROM `task` WHERE `id_task` = :id_task;");
@@ -40,3 +56,4 @@
 
         echo json_encode($datas);
     };
+
